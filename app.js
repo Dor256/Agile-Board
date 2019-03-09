@@ -1,10 +1,11 @@
 import express from "express";
 
 const app = express();
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.get("/", (req, res) => {
-    res.sendFile("C:/Users/Dor/VsWorkspace/Udemy/Agile/public/agile.html");
+    res.sendFile(path.resolve(__dirname, '/public', 'agile.html'));
+    // res.sendFile("C:/Users/Dor/VsWorkspace/Udemy/Agile/public/agile.html");
 });
 
 app.listen(process.env.PORT || 3000, () => {
